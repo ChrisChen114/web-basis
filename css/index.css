@@ -1,0 +1,26 @@
+p{
+	background-color: red;
+	font-size: 40px;
+}
+/*类选择器以.开头+class名*/
+.c1{
+	background-color: blue;
+	font-size: 20px;
+}
+/*body也是html里的一个标签，能直接作为一个选择器*/
+body{
+	/*background-color: #f5f5f5;*/
+	background-color: green;
+	background-image: url("../html/image/wen.jpg");
+	/*background-repeat: repeat-y;*/
+	background-repeat: no-repeat;
+	/*background-attachment: scroll;*/
+	/* fixed-背景图片不随滚动条发生变化，即固定在某个位置  */
+	background-attachment: fixed;
+	/*background-position: top center;*/
+	background-position: 100px 100px;
+
+/*          综合设置
+	background: green url("../html/image/wen.jpg") no-repeat
+	                fixed 100px 100px;*/
+}

@@ -1,0 +1,31 @@
+p{
+	/*background-color: #FF00FF;*/
+	color: rgb(255,180,110);
+	direction: ltr;
+	/*letter-spacing: 30px;*/
+	line-height: 30px;
+	text-align: justify;
+	/*text-decoration: line-through;*/
+	/*text-shadow: 5px 5px 1px red;*/
+	text-transform: uppercase;
+	text-indent: 2em;
+	font-style: italic;
+	font-weight: 100;
+	font-size: 20px;
+}
+ul{
+	/* 空心  */
+/*	list-style-type: circle;
+	list-style-position: inside;
+	list-style-image: url(../html/image/headLogo/1.gif);*/
+	list-style: circle inside url(../html/image/headLogo/2.gif);
+}
+
+ol{
+	/* 空心  */
+	list-style-type: lower-latin;
+}
+
+.c2{
+	direction: rtl;
+}
