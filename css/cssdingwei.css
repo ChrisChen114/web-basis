@@ -1,0 +1,27 @@
+/*cssdingwei.css*/
+
+#div1{
+	background-color: yellow;
+	width: 150px;
+	height: 150px;
+	/*需要一个参照物*/
+	position: absolute;
+	top: 150px;
+	left: 150px;
+	overflow: hidden;
+	outline: none;
+	border-bottom: solid;
+}
+
+
+#div2{
+	top: 150px;
+	left: 350px;
+	position: absolute;
+	/*border-bottom: solid;*/
+}
+input{
+	border: none;
+	border-bottom: solid;
+	outline: none;
+}
