@@ -1,0 +1,57 @@
+<!-- table-etc.html -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>table studying</title>
+</head>
+<body>
+	<!-- 制作表格 -->
+	<!-- table这行 cellpadding="20px" -->
+	<table border="1px" width="600px" frame="void" rules="rows">
+		<caption>商品库存表</caption>
+		<!-- 页眉部分 -->
+		<thead>
+			<tr>
+				<th>商品类别</th>
+				<th>商品名称</th>
+				<th>单位</th>
+				<th>数量</th>
+			</tr>
+		</thead>
+
+		<!-- 主体部分 -->
+		<tbody>
+			<!-- 家电类-列合并 -->
+			<!-- 合并时候，以左边或上边为依据进行合并 -->
+			<tr bgcolor="red">
+				<td rowspan="2">家电类</td>
+				<td>冰箱</td>
+				<td>台</td>
+				<td>100.00</td>
+			</tr>
+			<tr>
+				<td>洗衣机</td>
+				<td>台</td>
+				<<!-- 已经废弃了 td align="char" char=".">13.0</td> -->
+				<td>13.0</td>
+			</tr>
+			<tr>
+				<td>辅料</td>
+				<td>插线板</td>
+				<td>个</td>
+				<td>1000.0</td>
+			</tr>
+		</tbody>
+
+		<!-- 页脚部分 -->
+		<tfoot>
+			<!-- 备注-行合并 -->
+			<tr>
+				<td colspan="4">备注:</td>
+			</tr>
+		</tfoot>
+	</table>
+</body>
+</html>
