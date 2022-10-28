@@ -1,0 +1,92 @@
+/*weilei.css 伪类*/
+
+
+p[class="p1"]{
+	background-color: red;
+}
+
+/*#div2+div{
+	background-color: red;
+}
+*/
+
+
+
+
+/*#pName1,#pName2,#td1{
+	color: red;
+}*/
+
+/*#pName1{
+	color: blue;
+	background-color: red;
+}
+#pName2{
+	color: red;
+}
+*{
+	font-size: 20px;
+}*/
+
+
+
+
+/*.p1{
+	color: red;
+}*/
+
+
+
+/*p::before{
+	content: "终于找到你，";
+}
+p::first-line{
+	background-color: red;
+}
+table::before{
+	content: "终于找到你，";
+}
+table::after{
+	content: "依依不舍离开你";
+}
+*::selection{
+	background-color: yellow;
+}*/
+
+
+
+/*a:link{
+	color: red;
+}
+
+a:visited{
+	color: blue;
+}
+a:hover{
+	color: yellow;
+	font-size: 30px;
+}
+a:active{
+	color: green;
+}
+
+label:hover{
+	color: yellow;
+}
+
+input:hover{
+	background-color: red;
+}
+input:active{
+	background-color: yellow;
+}
+input:focus{
+	background-color: red;
+}
+
+p:nth-child(2){
+	background-color: red;
+}
+td:nth-child(2){
+	background-color: red;
+}*/
