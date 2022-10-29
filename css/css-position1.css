@@ -1,0 +1,9 @@
+.main{
+    width: 500px;
+    height: 500px;
+    background-color: red;
+    top: 20px;
+    left: 120px;
+    /*position记得要加上，否则top和left会没效果*/
+    position: absolute;
+}

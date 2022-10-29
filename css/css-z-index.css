@@ -1,0 +1,31 @@
+
+div{
+    width: 100px;
+    height: 100px;
+}
+
+.main{
+    height: 300px;
+}
+
+.div1{
+    background-color: red;
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    z-index: 10;
+}
+.div2{
+    background-color: green;
+    position: absolute;
+    top: 40px;
+    left: 120px;
+    z-index: 50;
+}
+.div3{
+    background-color: blue;
+    position: absolute;
+    top: 50px;
+    left: 140px;
+    z-index: 30;
+}

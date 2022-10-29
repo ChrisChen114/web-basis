@@ -1,0 +1,23 @@
+div{
+    width: 100px;
+    height: 100px;
+}
+/*绝对定位会破坏文档流*/
+.div1{
+    background-color: red;
+    top: 10px;
+    left: 200px;
+    position: absolute;
+}
+.div2{
+    background-color: green;
+    top: 20px;
+    left: 250px;
+    position: absolute;
+}
+.div3{
+    background-color: blue;
+    top: 30px;
+    left: 300px;
+    position: absolute;
+}
