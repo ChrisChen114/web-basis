@@ -1,0 +1,41 @@
+/*以下演示的是float浮动的清除*/
+
+
+/*以下演示的是包裹*/
+/*#div1{*/
+/*    background-color: red;*/
+/*    float: left;*/
+/*}*/
+/*img{*/
+/*    vertical-align: bottom;*/
+/*    float: left;*/
+/*}*/
+/*p{*/
+/*    text-align: justify;*/
+/*    line-height: 28px;*/
+/*    !*这个是调整文件与图片的顶端对齐*!*/
+/*    margin-top: -5px;*/
+/*}*/
+
+
+/*以下演示的是崩溃*/
+/*#div1{*/
+/*    border: 1px solid black;*/
+/*    background-color: red;*/
+/*    !*height: 300px;*!*/
+/*    !*width: 600px;*!*/
+/*}*/
+/*#div2{*/
+/*    background-color: yellow;*/
+/*    height: 230px;*/
+/*    width: 450px;*/
+/*!*    虽然没有设置div2的宽度，则默认按父级元素的宽度进行设置*!*/
+
+/*    float: left;*/
+/*}*/
+/*#div3{*/
+/*    background-color: green;*/
+/*    height: 230px;*/
+/*    width: 500px;*/
+/*    float: left;*/
+/*}*/

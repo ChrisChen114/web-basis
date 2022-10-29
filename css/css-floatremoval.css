@@ -1,0 +1,48 @@
+#div1{
+    background-color: red;
+}
+#div2{
+    background-color: yellow;
+    float: left;
+    width: 200px;
+    height: 200px;
+    /*top: 10px;*/
+    /*position: relative;*/
+}
+#div3{
+    background-color: blue;
+    float: left;
+    width: 220px;
+    height: 220px;
+}
+#div4{
+    background-color: black;
+    /*没有浮动*/
+    /*float: left;*/
+    width: 240px;
+    height: 240px;
+    /*从div4开始就不在浮动了
+    清除浮动就是清除该元素之前的float浮动
+    就是将div4之前的浮动都清除掉
+    即可以清除左浮动，也可以清除右浮动*/
+    /*第一种方法*/
+    /*clear: both;*/
+}
+/*第二种方法*/
+/*#clearDiv{*/
+/*    clear: both;*/
+/*}*/
+/*第三种*/
+/*可以在内容之后插入新内容*/
+#clearDiv::after{
+    /*这种写法是比较主流的*/
+    content: "";
+    visibility: hidden;
+    height: 0px;
+    /*块级元素*/
+    display: block;
+    clear: both;
+}
+#clearDiv{
+    zoom: 1;
+}
