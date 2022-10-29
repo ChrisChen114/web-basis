@@ -3,12 +3,30 @@ div{
     width: 200px;
     height: 200px;
     overflow: hidden;
+    margin-left: 20px;
 }
 #div1{
     background-color: red;
 
+    /*margin-left: 20px;*/
+    /*margin-bottom: 20px;*/
+    padding-right: 20px;
+    box-sizing: border-box;
+    /* 水平居中*/
+    text-align: center;
+    /* 垂直居中，使行高与div高度一致*/
+    line-height: 200px;
+    margin: 0px auto;
+    /*注意书写顺序*/
+    margin-top: 20px;
 }
 
-#div2{
-    background-color: green;
+/*#div2{*/
+/*    background-color: green;*/
+
+/*}*/
+/**号选择器，代表通配符*/
+*{
+    /*margin: 0px;*//* 简写形式 */
+    margin: 0px 0px;
 }
