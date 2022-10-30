@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSX语法规则</title>
+  <style>
+    .title{
+      background-color: orange;
+      width: 200px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 准备好一个容器-->
+  <div id="test"></div>
+
+  <!--引入react核心库，顺序不能乱-->
+  <script type="text/javascript" src="../../js/react.development.js"></script>
+  <!--引入react-dom 用于支持react操作DOM-->
+  <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+  <!--引入babel, 用于将jsx转为js-->
+  <script type="text/javascript" src="../../js/babel.min.js"></script>
+
+  <!--    里面写jsx，然后靠babel翻译一下
+  此处一定要写babel -->
+  <script type="text/babel">
+    /**
+     * 一定注意区分：[js语句（代码）]与[js表达式]
+     *  1.表达式：一个表达式会产生一个值，可以放在任何一个需要值的地方
+     *      下面这些都是表达式
+     *        （1）a
+     *        （2）a+b
+     *         (3) demo(1)
+     *         (4) arr.map()
+     *         (5) function test(){}
+     *  2. 语句（代码）
+     *    下面这些都是语句（代码）
+     *        （1）if(){}
+     *        （2）for(){}
+     *         (3) switch(){case:xxxx}
+     *         (4) arr.map()
+     *         (5) function test(){}
+     *
+     */
+
+    //模拟一些数据
+    const data = ["Angular","React","Vue"]
+    const data2 = [<li>Angular</li>,<li>React</li>,<li>Vue</li>]
+    const obj = {name1:"Angular",name2:"React",name:"Vue"}
+    //1.创建虚拟DOM
+    const VDOM = (
+      <div>
+        <h1>前端js框架列表</h1>
+        <ul>
+          {
+            data.map((item,index)=>{
+              return <li key={index}>{item}</li>
+            })
+          }
+        </ul>
+      </div>
+    )
+    //2.渲染虚拟DOM到页面
+    ReactDOM.render(VDOM,document.getElementById('test'))
+
+    //下面这种格式，把数据写死了，如何改成动态的？
+    // <li>Angular</li>
+    // <li>React</li>
+    // <li>Vue</li>
+
+
+  </script>
+
+</body>
+</html>
