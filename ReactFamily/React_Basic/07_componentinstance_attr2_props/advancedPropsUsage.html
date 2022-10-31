@@ -23,7 +23,7 @@
         class Person extends React.Component{
             state = {name:'tom',age:18,sex:'女'}
             render(){
-                console.log(this)
+                // console.log(this)
                 //结构化赋值
                 const {name,age,sex} = this.props
                 return(
@@ -41,11 +41,11 @@
         const p = {name:"tom",age:"18",sex:"女"}
         //...是展开运算符
         ReactDOM.render(<Person {...p}/>,document.getElementById('test1'))
-        const p2 = {name:"jerry",age:"19",sex:"男"}
+        const p2 = {name:"jerry",age:19,sex:"男"}
         //...p2,可以在标签中这么使用，其他地方对对象这样用都报错
         ReactDOM.render(<Person {...p2}/>,document.getElementById('test2'))
-        console.log('@',...p)//结果是只有一个@，无后面的p属性内容
-        console.log('@',{...p})//输出：@ {name: 'tom', age: '18', sex: '女'}
+        // console.log('@',...p)//结果是只有一个@，无后面的p属性内容
+        // console.log('@',{...p})//输出：@ {name: 'tom', age: '18', sex: '女'}
 
 
     </script>
