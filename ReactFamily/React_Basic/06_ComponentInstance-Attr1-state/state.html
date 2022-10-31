@@ -29,6 +29,10 @@
                 this.state = {isHot:false};
                 //解决changeWeather中this指向问题
                 this.changeWeather = this.changeWeather.bind(this)
+
+                //通常，在 React 中，构造函数仅用于以下两种情况：
+                // 1.通过给 this.state 赋值对象来初始化内部 state。
+                // 2.为事件处理函数绑定实例.
             }
 
             //render调用几次？--1+N次，1是初始化的那次 N是状态更新的次数
