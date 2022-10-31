@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>props基本使用</title>
+</head>
+<body>
+    <!-- 准备好一个容器-->
+    <div id="test1"></div>
+    <div id="test2"></div>
+
+    <!--引入react核心库，顺序不能乱-->
+    <script type="text/javascript" src="../../js/react.development.js"></script>
+    <!--引入react-dom 用于支持react操作DOM-->
+    <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+    <!--引入babel, 用于将jsx转为js-->
+    <script type="text/javascript" src="../../js/babel.min.js"></script>
+
+    <!--    里面写jsx，然后靠babel翻译一下
+    此处一定要写babel -->
+    <script type="text/babel">
+        //1.创建组件
+        class Person extends React.Component{
+            state = {name:'tom',age:18,sex:'女'}
+            render(){
+                console.log(this)
+                //结构化赋值
+                const {name,age,sex} = this.props
+                return(
+                    <ul>
+                        <li>姓名：{name}</li>
+                        <li>性别：{sex}</li>
+                        <li>年龄：{age}</li>
+                    </ul>
+                )
+            }
+        }
+
+        //2.渲染组件到页面
+        //ReactDOM.render(<Person name="tom" age="18" sex="女"/>,document.getElementById('test1'))
+        const p = {name:"tom",age:"18",sex:"女"}
+        //...是展开运算符
+        ReactDOM.render(<Person {...p}/>,document.getElementById('test1'))
+        const p2 = {name:"jerry",age:"19",sex:"男"}
+        //...p2,可以在标签中这么使用，其他地方对对象这样用都报错
+        ReactDOM.render(<Person {...p2}/>,document.getElementById('test2'))
+        console.log('@',...p)//结果是只有一个@，无后面的p属性内容
+        console.log('@',{...p})//输出：@ {name: 'tom', age: '18', sex: '女'}
+
+
+    </script>
+</body>
+</html>
