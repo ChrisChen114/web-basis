@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1-string defined ref</title>
+</head>
+<body>
+    <!-- 准备好一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库，顺序不能乱-->
+    <script type="text/javascript" src="../../js/react.development.js"></script>
+    <!--引入react-dom 用于支持react操作DOM-->
+    <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+    <!--引入babel, 用于将jsx转为js-->
+    <script type="text/javascript" src="../../js/babel.min.js"></script>
+    <!--引入prop-types, 用于对组件标签属性进行限制-->
+    <script type="text/javascript" src="../../js/prop-types.js"></script>
+
+    <!--    里面写jsx，然后靠babel翻译一下
+    此处一定要写babel -->
+    <script type="text/babel">
+        //1.创建组件
+        class Demo extends React.Component{
+            //展示左侧输入框的数据
+            showData = ()=>{
+                const {input1} = this
+                alert(input1.value)
+            }
+
+            //展示右侧输入框的数据
+            showData2 = ()=>{
+                const {input2} = this
+                alert(input2.value)
+            }
+
+            render(){
+                //ref和原生的id=“”，可以认为是一个作用
+                //箭头函数这句话可以这么改写：ref={c=>this.input1 = c}，它是一个回调函数
+                // <input ref={(currentNode)=>{this.input1 = currentNode}} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+                // <input ref={c=>this.input1 = c} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+
+                return(
+                    <div>
+                        <input ref={currentNode=>this.input1 = currentNode} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+                        <button onClick={this.showData}>点我提示左侧的数据</button>&nbsp;
+                        <input onBlur={this.showData2} ref={c=>this.input2 = c}  type="text" placeholder="失去焦点提示数据"/>
+                    </div>
+                )
+                //失去焦点在React中用onBlur
+            }
+        }
+
+        //2.渲染组件到页面
+        ReactDOM.render(<Demo/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
