@@ -52,6 +52,10 @@
                 //通过Student实例调用study时，study中的this就是Student实例
                 console.log('我很努力的学习')
             }
+            //补充一个知识点：
+            //类中可以直接写赋值语句，如下代码的含义是：
+            // 给Student的实例对象添加一个属性，名为hasPhone,值为true
+            hasPhone = true
         }
         const s1 = new Student('zhang',28,10)
         s1.speak()
