@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数柯里化</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // function sum(a,b,c){
+    //   returna+b+c
+    // }
+    function sum(a){
+      return(b)=>{
+        return(c)=>{
+          return a+b+c
+        }
+      }
+    }
+    const result = sum(1)(2)(3)
+    console.log(result)
+  </script>
+</body>
+</html>
