@@ -36,6 +36,7 @@
             )
         }
 
+        //做限制的话，只能在函数式组件的外面
         //对标签属性进行类型、必要性的限制.
         Person.propTypes={
             name:PropTypes.string.isRequired,//限制name必传，且为字符串
