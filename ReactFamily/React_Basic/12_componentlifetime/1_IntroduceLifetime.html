@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引出React声明周期</title>
+</head>
+<body>
+    <!-- 准备好一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库，顺序不能乱-->
+    <script type="text/javascript" src="../../js/react.development.js"></script>
+    <!--引入react-dom 用于支持react操作DOM-->
+    <script type="text/javascript" src="../../js/react-dom.development.js"></script>
+    <!--引入babel, 用于将jsx转为js-->
+    <script type="text/javascript" src="../../js/babel.min.js"></script>
+    <!--引入prop-types, 用于对组件标签属性进行限制-->
+    <script type="text/javascript" src="../../js/prop-types.js"></script>
+
+    <!--    里面写jsx，然后靠babel翻译一下
+    此处一定要写babel -->
+    <script type="text/babel">
+        //创建组件
+        //生命周期回调函数 <==> 生命周期钩子函数 <==> 生命周期函数 <==>生命周期钩子
+        class Life extends  React.Component{
+            //opacity-不透明性
+            state = {opacity:1}
+
+            //death
+            //赋值语句+箭头函数
+            death = ()=>{
+                //卸载组件
+                ReactDOM.unmountComponentAtNode(document.getElementById('test'))
+            }
+            //组件挂载完毕
+            componentDidMount(){
+                this.timer = setInterval(()=>{
+                    //获取原状态
+                    let {opacity} = this.state
+                    //减小0.1
+                    opacity -= 0.1
+                    if(opacity <=0) opacity=1
+                    //设置新的透明度
+                    //如果key-value同名，可以简写成第二种形式
+                    //this.setState({opacity:opacity})
+                    this.setState({opacity})
+                },200)
+            }
+            //组件将要被卸载。可以在这里做一些收尾工作.
+            componentWillUnmount(){
+                //清除定时器
+                clearInterval(this.timer)
+            }
+            //render调用的时机：初始化渲染+状态更新之后
+            render(){
+                return(
+                    <div>
+                        <h2 style={{opacity:this.state.opacity}}>React学不会，怎么办？</h2>
+                        <button onClick={this.death}>不活了</button>
+                    </div>
+                )
+            }
+        }
+        //2.渲染组件
+        ReactDOM.render(<Life/>,document.getElementById('test'))
+    </script>
+</body>
+</html>
