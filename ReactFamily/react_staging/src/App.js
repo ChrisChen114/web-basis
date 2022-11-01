@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
-//也可以这么写，直接创建并暴露App组件
-// export default function App() {
+//下面这一行也可以这么写，直接创建并暴露App组件
+//export default function App() {
 //函数定义的组件，里面有返回值
 function App() {
   return (
