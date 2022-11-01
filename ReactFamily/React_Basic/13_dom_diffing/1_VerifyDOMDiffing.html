@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>验证DOM的Diffing算法</title>
+</head>
+<body>
+    <!-- 准备好一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库，顺序不能乱-->
+    <script type="text/javascript" src="../../js-react18/react.development.js"></script>
+    <!--引入react-dom 用于支持react操作DOM-->
+    <script type="text/javascript" src="../../js-react18/react-dom.development.js"></script>
+    <!--引入babel, 用于将jsx转为js-->
+    <script type="text/javascript" src="../../js-react18/babel.min.js" charset="UTF-8"></script>
+
+    <!--    里面写jsx，然后靠babel翻译一下
+    此处一定要写babel -->
+    <script type="text/babel">
+        //1.创建组件
+        class Time extends React.Component{
+            //初始化状态
+            state = {date:new Date()}
+
+            //
+            componentDidMount() {
+                setInterval(()=>{
+                    this.setState({
+                        date: new Date()
+                    })
+                },1000)
+            }
+
+            render() {
+                return(
+                    <div>
+                        <h1>hello</h1>
+                        <input type="text"/>
+                        <span>现在是: {this.state.date.toTimeString()}</span>
+                    </div>
+                )
+            }
+        }
+        //2.渲染组件到页面
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<Time/>);
+    </script>
+</body>
+</html>
