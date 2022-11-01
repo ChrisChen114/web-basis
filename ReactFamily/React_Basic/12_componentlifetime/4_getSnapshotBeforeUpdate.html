@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>引出React新的生命周期</title>
+    <style>
+        .list{
+            height: 150px;
+            width: 200px;
+            background-color: skyblue;
+            overflow: auto;
+        }
+        .news{
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 准备好一个容器-->
+    <div id="test"></div>
+
+    <!--引入react核心库，顺序不能乱-->
+    <script type="text/javascript" src="../../js-react18/react.development.js"></script>
+    <!--引入react-dom 用于支持react操作DOM-->
+    <script type="text/javascript" src="../../js-react18/react-dom.development.js"></script>
+    <!--引入babel, 用于将jsx转为js-->
+    <script type="text/javascript" src="../../js-react18/babel.min.js" charset="UTF-8"></script>
+
+    <!--    里面写jsx，然后靠babel翻译一下
+    此处一定要写babel -->
+    <script type="text/babel">
+        /**
+         * 生命周期的三个阶段（新）
+         * 1. 初始化阶段: 由ReactDOM.render()触发---初次渲染
+         *      1.    constructor()
+         *      2.    getDerivedStateFromProps -新增
+         *      3.    render()
+         *      4.    componentDidMount() ====>>常用，一般在这个钩子中做一些初始化的工作，
+         *              比如：开启定时器、发送网络请求、订阅消息
+         * 2. 更新阶段: 由组件内部this.setSate()或父组件重新render触发
+         *      1.    getDerivedStateFromProps
+         *      2.    shouldComponentUpdate()
+         *      3.    render()
+         *      4.    getSnapshotBeforeUpdate -新增
+         *      5.    componentDidUpdate()
+         * 3. 卸载组件: 由ReactDOM.unmountComponentAtNode()触发
+         *      1.    componentWillUnmount() ====>>常用，一般在这个钩子中做一些收尾的事，
+         *              比如：关闭定时器、取消订阅消息
+         */
+
+
+        //1.创建组件
+        class NewList extends React.Component{
+            state = {newArr:[]};
+            componentDidMount() {
+                setInterval(()=>{
+                    //获取原状态
+                    const {newArr} = this.state;
+                    //模拟一条新闻
+                    const news = '新闻'+(newArr.length+1);
+                    //更新状态
+                    this.setState({newArr: [news,...newArr]})
+                },1000)
+            }
+            //更新前，获取快照
+            getSnapshotBeforeUpdate(prevProps, prevState) {
+                return this.myRef.current.scrollHeight;
+            }
+            componentDidUpdate(prevProps, prevState, height) {
+                this.myRef.current.scrollTop += this.myRef.current.scrollHeight - height;
+            }
+            myRef = React.createRef()
+            render() {
+                return(
+                    <div className="list" ref={this.myRef}>
+                        {
+                            this.state.newArr.map((n,index)=>{
+                                return <div key={index} className="news">{n}</div>
+                            })
+                        }
+                    </div>
+                )
+            }
+        }
+        //2.渲染组件到页面
+        const root = ReactDOM.createRoot(document.getElementById('test'));
+        root.render(<NewList/>)
+    </script>
+</body>
+</html>
