@@ -25,5 +25,5 @@ function App() {
   );
 }
 
-//ES6默认语法，给默认暴露出去，暴露App组件
+//ES6默认语法，默认暴露出去，暴露App组件
 export default App;
