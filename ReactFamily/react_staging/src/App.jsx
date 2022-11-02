@@ -1,3 +1,4 @@
+//引入react组件
 import React, { Component } from 'react'
 
 export default class App extends Component {
