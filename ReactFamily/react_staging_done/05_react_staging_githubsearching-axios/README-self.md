@@ -56,7 +56,10 @@
         // 这里有一个雷：err那里不要存错误对象，要存错误对象身上的一个属性
 
 补充：兄弟组件间的通信：消息订阅-发布机制
-    PubSubJS
+    使用这个组件 PubSubJS
+    npm install pubsub-js --save
+    yarn add pubsub-js
+    具体见下一个工程
 
     
     
