@@ -25,7 +25,7 @@ export default class List extends Component {
 
     //卸载钩子
     componentWillUnmount(){
-        PubSub.unSubscribe(this.token);
+        PubSub.unsubscribe(this.token);
     }
 
     render() {
