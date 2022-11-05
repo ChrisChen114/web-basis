@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 // 使用{}，表示里面有多个函数式分别暴露，用哪个取哪个
-import {NavLink,Route,Routes} from 'react-router-dom'
+import {Route,Routes,Switch} from 'react-router-dom'
 // Home和About是路由组件
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
@@ -44,9 +44,11 @@ export default class App extends Component {
 
                 {/* react-router-dom依赖为6版本，需要使用6版本的写法 */}
                 <Routes>
-                  
-                  <Route path='/about' element={<About/>}/>
-                  <Route path='/home' element={<Home/>}/>
+                  <Switch>
+                    {/* Switch组件，只匹配一个，不在执行其他的 */}
+                    <Route path='/about' element={<About/>}/>
+                    <Route path='/home' element={<Home/>}/>
+                  </Switch>
                 </Routes>
               </div>
             </div>
