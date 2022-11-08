@@ -4,8 +4,11 @@
  */
 import {combineReducers} from 'redux'
 import count from './count'
+import persons from './person'
 
+// 这里面的对象变量，要与其他地方一致
 export default combineReducers({
-    count,
-}
+        count,
+        persons
+    }
 )
