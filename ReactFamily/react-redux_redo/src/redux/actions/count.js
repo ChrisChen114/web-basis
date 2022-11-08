@@ -12,6 +12,8 @@ import {INCREMENT,DECREMENT,INCREMENTASYNC} from '../constant.js'
 //     this.state.dispatch({type:INCREMENT,data})
 // }
 // 写成箭头函数的形式
+// 箭头右侧只有一句函数体，还想默认返回一个对象，写成小括号(),把花括号{}丢里面去。
+// 箭头左侧只有一个参数，小括号()省略了，
 export const increment = data=>({type:INCREMENT,data})
 
 export const decrement = data=>({type:DECREMENT,data})
