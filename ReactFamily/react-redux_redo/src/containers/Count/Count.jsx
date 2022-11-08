@@ -41,7 +41,7 @@ import {
     render() {
         return (
             <div>
-            <h2>我是Count组件,当前Person组件总人数为??</h2>
+            <h2>我是Count组件,当前Person组件总人数为{this.props.countPerson}</h2>
             <h4>当前求和为:{this.props.count}</h4>
             <select ref={c=>this.selectNumber=c}>
                 <option value="1">1</option>
@@ -61,7 +61,8 @@ import {
 export default connect(
     // state=>({}),需要一个()？？？
     state=>({
-        count:state.count
+        count:state.count,
+        countPerson:state.persons.length
     }),
     {
         increment,
