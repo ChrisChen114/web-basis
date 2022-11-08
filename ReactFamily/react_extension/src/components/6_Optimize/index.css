@@ -1,0 +1,12 @@
+.parent{
+    /* width: 500px; */
+    /* 不给宽度，就是横向充满 */
+    background-color: orange;
+    padding: 10px;
+}
+.child{
+    /* width: 100%; */
+    background-color: skyblue;
+    margin-top: 30px;
+    padding: 10px;
+}
