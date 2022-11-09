@@ -1,18 +1,26 @@
 import React from 'react'
-import { useParams,useMatch } from 'react-router-dom'
+// import {useSearchParams,useLocation} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 export default function Detail() {
-    const { id,title,content} = useParams();
-    // useMatch用的不多
-    //  const x=useMatch('/home/message/detail/:id/:title/:content');
-    //  x.params就能得到一个对象：{id: '004', title: '消息4', content: '粒粒皆辛苦'}
-    //  console.log(x.params)
-    
+    // 使用useSearchParams，实现路由参数的传递
+    // const [search,setSearch] = useSearchParams();
+    // const id = search.get('id')
+    // const title = search.get('title')
+    // const content = search.get('content')
+
+    // useLocation实现路由中state参数的传递
+    // 连续解构赋值
+    const {state:{id,title,content}} = useLocation();
+    // console.log('--',x.state)
     return (
-        // 1. RRD5中 props接收参数有3中：history，location，match
-        // 2. RRD6中，函数式组件中一种是用useParams
-        //          还有一种是使用useMatch
         <ul>
+            {/* <li> */}
+                {/* setSearch的使用 */}
+                {/* 里面直接给一个回调，当然其他也行 */}
+                {/* <button onClick={()=>setSearch('id=008&title=更改&content=西西')}>点我更新一下收到的search参数</button> */}
+                {/* <button onClick={()=>setSearch('id=008&title=更改&content=西西')}>点我更新一下收到的search参数</button> */}
+            {/* </li> */}
             <li>消息编号:{id}</li>
             <li>消息抬头:{title}</li>
             <li>消息内容:{content}</li>
