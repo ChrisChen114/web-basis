@@ -1,12 +1,4 @@
-Node的用途
-Web服务API，比如REST
-实时多人游戏
-后端的Webfuweu，例如跨域、服务器端的请求
-基于Web的应用
-多客户端的通信，如即时通信
-
-
-
+/*
     npm 常用命令
     npm -v
     npm version
@@ -18,3 +10,5 @@ Web服务API，比如REST
     npm install    =>>下载所有的依赖
     npm install 包名 -registry=地址    ==>>从镜像源安装
     npm config 包名 registry 地址     ==>>设置镜像源
+
+*/ 
