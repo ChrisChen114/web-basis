@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set - 实践 </title>
+</head>
+
+<body>
+    <script>
+        // 实践
+        let arr = [1,2,3,4,5,4,3,2,1];
+        // 1. 数组去重
+        // let result = new Set(arr);// 这样写，result不是数组，是集合，需求是数组去重
+        // console.log(result);// Set(5)
+        // let result = [...new Set(arr)];
+        // console.log(result);// (5) [1, 2, 3, 4, 5]
+
+        // 2. 交集
+        let arr2 = [4,5,6,5,6];
+        let resultArr = [...new Set(arr)].filter(item=>{
+            // if(){} 用常规的遍历 或 find 方法，都能实现
+            // 此处用集合来处理
+            let resultArr2 = new Set(arr2);// 先变成集合 => 4,5,6
+            if(resultArr2.has(item)){
+                return true;
+            }else{
+                return false;
+            }
+
+        });
+        console.log(resultArr);
+        // 上述代码还可以进一步简化
+        let resultArr1 = [...new Set(arr)].filter(item=> new Set(arr2).has(item));
+        console.log(resultArr1);
+
+
+        // 3. 并集
+        // [...arr,...arr2] ,先合并成数组
+        // new Set([...arr,...arr2]) ,变成一个去重后的集合
+        // [...new Set([...arr,...arr2])] ,在变回数组
+        let union = [...new Set([...arr,...arr2])];
+        console.log(union);//输出： (6) [1, 2, 3, 4, 5, 6]
+
+        // 4. 差集
+        // 谁是主体，结果是不一样的.
+        // 数组1=【1,2,3】，数组2=【3,4,5】. 如果数组1和数组2做差集，结果为【1,2】
+        // 数组1=【1,2,3】，数组2=【3,4,5】. 如果数组2和数组1做差集，结果为【4,5】
+        // 是交集的逆运算
+        let resultArr2 = [...new Set(arr)].filter(item=> !(new Set(arr2).has(item)));
+        console.log(resultArr2);// 输出：(3) [1, 2, 3]
+
+
+    </script>
+</body>
+
+</html>

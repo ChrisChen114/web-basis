@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise - catch方法 </title>
+</head>
+
+<body>
+    <script>
+        // catch 方法用来指定 Promise 对象失败时的回调
+        const p = new Promise((resolve,reject)=>{
+            setTimeout(()=>{
+                // 设置 p 对象的状态为失败，并设置失败的值
+                reject("出错啦");
+            },1000);
+        });
+
+        // 这是通过 then 方法实现的
+        // p.then(function(value){},function(reason){
+        //     console.error(reason);
+        // })
+
+        // 通过 catch 方法实现
+        // 其实算一种语法糖，也就是 then 方法不指定第一个参数
+        p.catch(function(reason){
+            console.warn(reason);
+        })
+
+    </script>
+</body>
+
+</html>

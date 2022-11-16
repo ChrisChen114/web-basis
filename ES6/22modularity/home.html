@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <!-- 
+        1. 安装工具 babel-cli babel-preset-env browserify
+            babel-cli 是babel的一个命令行工具
+            babel-preset-env 是一个预设包，能把最新的ECMAScript特性进行转换
+            browserify 是打包工具，此处用的是browserify，在项目中将使用webpack
+
+            在终端，
+            npm ini -yes
+            npm i babel-cli babel-preset-env browserify -D    其中 -D 是指开发依赖
+            
+        2. 
+        npx babel js -d dist/js --presets=babel-preset-env
+            补充：为什么是npx，因为是局部安装；如果是全局安装，直接用babel就可以
+
+        3. 打包
+            npx browserify dist/js/app.js -o dist/bundle.js
+     -->
+     <script src="dist/bundle.js"></script>
+     <!-- 上面这一句能正确输出结果 -->
+
+     <!-- 新的需求，用jquery对背景颜色进行修改
+        
+    -->
+</body>
+</html>

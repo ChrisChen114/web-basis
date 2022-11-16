@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.prototype.then </title>
+</head>
+
+<body>
+    <script>
+        // 
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('用户数据');
+                // reject('出错了');
+            }, 1000)
+        });
+
+        // 回调里也可以指定箭头函数，改写下面代码
+        // p.then(function(){
+
+        // },function(){
+
+        // })
+        // 使用箭头函数的形式
+        // 调用 then 方法， then 方法的返回结果是 Promise 对象，
+        // 对象状态由回调函数的执行结果决定
+        // 1. 如果回调函数中返回的结果是 非 Promise 类型的属性，
+        //    状态为成功，返回值为对象的成功的值
+        // const result = p.then(value=>{
+        //     console.log(value);
+        //     // 1. 非 Promise 类型的属性
+        //     // return 1213;
+        //     /*
+        //         将输出：
+        //         Promise {<pending>}
+        //             [[Prototype]]: Promise
+        //             [[PromiseState]]: "fulfilled"    =>状态为成功
+        //             [[PromiseResult]]:1213
+        //         用户数据
+        //     */ 
+
+        //     // 2. 是 Promise 对象
+        //     // return new Promise((resolve,reject)=>{
+        //     //     // resolve('ok');
+        //     //     reject('error');
+        //     // });
+
+        //     // 3. 抛出错误
+        //     throw '出错啦';
+        // }, reason =>{
+        //     console.warn(reason);// 输出黄色三角感叹号
+        // })
+
+
+        // Promise 方法是可以链式调用的,可以解决回调地狱的问题
+        // then 回调可以只指定一个，比如下面 then 没有 reason
+        p.then(value => {
+
+        }).then(value => {
+
+        });
+
+        console.log(result);
+
+    </script>
+</body>
+
+</html>

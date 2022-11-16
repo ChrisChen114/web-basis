@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template String - 模板字符串</title>
+</head>
+<body>
+    <script>
+        // ES6 引入新的声明字符串的形式   ``   ''   ""  ,共计3中，ES5里面是两种 ''   ""
+        // 1. 声明
+        // let str = `我是字符串`;
+        // console.log(str)
+
+        // 2. 内容中可以直接出现换行符
+        let str=`<ul>
+            <li>shenteng</li>
+            <li>shenteng</li>
+            <li>shenteng</li>
+            </ul>`;
+
+        // 3. 变量拼接
+        //    以前的写法
+        // let lovestr = 'weixiang';
+        // let out = 'woshi xiaoshenyang'+' '+lovestr;
+        // console.log(out);
+        //    新写法
+        let lovestr = 'weixiang';
+        // 模板字符串 `${xxx}`,引入js变量是固定写法${xxx}
+        let out = `woshi xiaoshenyang ${lovestr}`;
+        console.log(out);
+
+
+    </script>
+</body>
+</html>

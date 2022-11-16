@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+
+<body>
+    <script>
+        /*  ES6提供了Map数据结构。它类似于对象，也是键值对的集合。 
+            但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键。
+        */ 
+
+        // 声明Map
+        let m = new Map();
+
+        // 添加元素
+        // 1. 字符串形式的‘值’
+        m.set('name','atguigu');
+        // 2. function形式的‘值’
+        m.set('change',function(){
+            console.log('我们可以改变你');
+        });
+        // 3. 对象形式的‘键’，数组形式的‘值’
+        let key = {
+            school: 'ATGUIGU'
+        }
+        m.set(key,['beijing','shanghai','shenzhen']);
+        // 输出：{Object => Array(3)}
+
+        // 4. size
+        console.log(m.size);
+
+        // 5. 删除
+        m.delete('name');
+
+        // 6. 获取 - 传入键，输出值
+        console.log(m.get('change'));
+        console.log(m.get(key));
+
+        // 8. 遍历
+        for (let v of m) {
+            console.log(v);
+        }
+
+        // 7. 清空
+        m.clear();
+
+        console.log(m);
+
+
+    </script>
+</body>
+
+</html>

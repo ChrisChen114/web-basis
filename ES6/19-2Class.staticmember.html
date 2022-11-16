@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class - 静态成员</title>
+</head>
+
+<body>
+    <script>
+        // 
+        // ES5 的写法 - function
+        // 
+        // 手机为例
+        function Phone(){
+        }
+        Phone.prototype.size = '5.5inch'
+
+        // name,change属于函数对象，但并不属于实例对象
+        // 对于这样的成员，称为静态成员
+        Phone.name = '手机';
+        Phone.change = function(){
+            console.log('我可以改变世界')
+        }
+        let nokia = new Phone();
+        console.log(nokia.name);//输出：undefined
+        console.log(nokia.size);
+
+        // 
+        // class Phone1
+        // 类里面的static成员和属性，属于类对象的，但不属于实例化对象
+        class Phone1{
+            // 静态属性
+            static name = '手机';
+            static change(){
+                console.log('我可以改变世界');
+            }
+        }
+
+        let nokia1 = new Phone1();
+        console.log(nokia1.name);//undefined,即错误
+        console.log(Phone1.name);//手机 =>类可以访问，但是类实例对象无法访问
+        
+
+        
+
+    </script>
+</body>
+
+</html>

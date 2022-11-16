@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise - 发送 AJAX 请求 </title>
+</head>
+
+<body>
+    <script>
+        // 接口地址：https://api.apiopen.top/getJoke
+
+
+
+        // // 1. 创建对象
+        // const xhr = new XMLHttpRequest();
+        // // 2. 初始化
+        // xhr.open("GET","https://api.apiopen.top/getJoke");
+        // /*
+        //     CORS跨域报错：
+        //     Access to XMLHttpRequest at 'https://api.apiopen.top/getJoke' from origin 'null' has been blocked by CORS policy: 
+        //     No 'Access-Control-Allow-Origin' header is present on the requested resource.
+        // */ 
+        // // 3. 发送
+        // xhr.send();
+        // // 4. 绑定事件,响应结果
+        // xhr.onreadystatechange = function(){
+        //     // 判断
+        //     if(xhr.readyState === 4){
+        //         // 判断响应状态码 200~299 都是成功
+        //         if(xhr.status >= 200 && xhr.status < 300){
+        //             // 表示成功
+        //             console.log(xhr.response);
+        //         }else{
+        //             // 如果失败
+        //             console.error(xhr.status);
+        //         }
+        //     }
+        // }
+
+        // 
+        // 使用 Promise 进行封装
+        const p = new Promise((resolve, reject) => {
+
+            // 1. 创建对象
+            const xhr = new XMLHttpRequest();
+            // 2. 初始化
+            xhr.open("GET", "https://api.apiopen.top/getJoke");
+            /*
+                CORS跨域报错：
+                Access to XMLHttpRequest at 'https://api.apiopen.top/getJoke' from origin 'null' has been blocked by CORS policy: 
+                No 'Access-Control-Allow-Origin' header is present on the requested resource.
+            */
+            // 3. 发送
+            xhr.send();
+            // 4. 绑定事件,响应结果
+            xhr.onreadystatechange = function () {
+                // 判断
+                if (xhr.readyState === 4) {
+                    // 判断响应状态码 200~299 都是成功
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        // 表示成功
+                        // console.log(xhr.response);
+                        resolve(xhr.response);
+                    } else {
+                        // 如果失败
+                        // console.error(xhr.status);
+                        reject(xhr.status);
+                    }
+                }
+            }
+
+        })
+
+        // 在 then 里指定回调
+        p.then(function (value) {
+            // 成功，则进入resolve
+            console.log(value);
+        }, function (reason) {
+            // 失败，则进入reject
+            console.log(reason);
+        })
+    </script>
+</body>
+
+</html>

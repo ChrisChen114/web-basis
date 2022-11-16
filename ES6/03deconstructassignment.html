@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deconstruction assignment - 解构赋值</title>
+</head>
+<body>
+    <script>
+        // ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值。
+        // 这被称为解构赋值
+        // 1. 数组的结构
+        // const F4=['11','22','33','44'];
+        // let [xiao,liu,zhao,song] = F4;
+        // console.log(liu);
+        // console.log(xiao);
+        // console.log(zhao);
+        // console.log(song);
+
+        // 2. 对象的结构
+        const zhao={
+            name:'zhaobenzhan',
+            age:'buxiang',
+            // 还能写方法
+            xiaopin:function(){
+                console.log("wokeyi");
+            }
+        }
+
+        // let {name,age,xiaopin} = zhao;
+        // console.log(name,age,xiaopin);
+        // xiaopin();
+        zhao.xiaopin();//这种多麻烦
+        let {xiaopin} = zhao;//可以先提取zhao，就可以省写很多
+        xiaopin();
+        xiaopin();
+        xiaopin();
+        xiaopin();
+
+    </script>
+</body>
+</html>

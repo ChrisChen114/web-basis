@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>扩展运算符 - 应用</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 1. 数组的合并
+        const kuaizi = ['xiaoyang','wangtaili'];
+        const fenghuang = ['zengyi','linghua'];
+
+        // ES5 的写法
+        const hebing = kuaizi.concat(fenghuang);
+        console.log(hebing);
+        // Es6 的写法
+        // 展开运算符可以把数组转换为逗号序列
+        const hebing1 = [...kuaizi,...fenghuang];
+        console.log(hebing1);
+
+        // 2. 数组的克隆
+        const sanzhihua = ['E','G','M'];
+        const sanyecao = [...sanzhihua];
+        console.log(sanyecao)
+
+        // 3. 将伪数组转为真正的数组
+        const divs = document.querySelectorAll('div');
+        const divArr = [...divs];
+        console.log(divArr);
+
+    </script>
+</body>
+</html>

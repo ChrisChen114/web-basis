@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>迭代器应用 - 自定义遍历数据 </title>
+</head>
+
+<body>
+    <script>
+        // 注: 需要自定义遍历数据的时候，要想到迭代器。
+
+        // 声明一个对象
+        const banji = {
+            name:'zhongjiyiban',
+            stus:[
+                'xiaoming',
+                'chris',
+                'rui',
+                'liu'
+            ],
+            /*
+                a) 创建一个指针对象，指向当前数据结构的起始位置
+                b) 第一次调用对象的 next方法，指针自动指向数据结构的第一个成员
+                c) 接下来不断调用 next方法，指针一直往后移动，直到指向最后一个成员
+                d) 每调用 next方法返回一个包含 value和 done
+            */ 
+            [Symbol.iterator](){
+                // 索引变量
+                let index = 0;
+                // 
+                let _this = this;
+                return {
+                    next: function(){
+                        if(index < _this.stus.length){
+                            const result = {value:_this.stus[index],done:false};
+                            // 下标自增
+                            index++;
+                            return result;
+                        }else{
+                            return {value:undefined,done:true};
+                        }
+                        
+                    }
+                };
+            }
+        }
+
+        // 遍历这个对象的stus的值
+        // 按照我们的意愿完成遍历，自定义的遍历
+        for (let v of banji) {
+            console.log(v);
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class - 类声明</title>
+</head>
+
+<body>
+    <script>
+        // 
+        // ES5 的写法 - function
+        // 
+        // 手机为例
+        function Phone(brand,price){
+            this.brand = brand;
+            this.price = price;
+        }
+
+        // 添加方法 -通过prototype原型方法
+        Phone.prototype.call = function(){
+            console.log('我可以打电话！！');
+        }
+
+        // 实例化对象
+        let Huawei = new Phone('华为',5999);
+        // 调方法
+        Huawei.call();
+
+        console.log(Huawei);
+
+
+        // 
+        // ES6 的写法 - class
+        // 
+        class Phone1{
+            // 构造方法 名字不能修改
+            constructor(brand,price){
+                this.brand = brand;
+                this.price = price;
+            }
+
+            // 方法必须使用该语法，不能使用 ES5 的对象完整形式
+            call(){
+                console.log('我可以打电话！！')
+            }
+        }
+        // 实例化
+        let onePlus = new Phone1('1',1999);
+        console.log(onePlus);
+
+    </script>
+</body>
+
+</html>

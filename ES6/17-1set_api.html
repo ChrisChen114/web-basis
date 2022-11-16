@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set - 集合 </title>
+</head>
+
+<body>
+    <script>
+        // 声明一个 set
+        let s = new Set();
+        // 顺带用typeof，输出一下它的类型
+        console.log(s,typeof s);// 输出： Set(0) 'object'
+
+        // 会自动去重
+        let s2 = new Set(['dashi','xiaoshi','haoshi','xiaoshi','huaishi']);
+        // 获取元素个数用 size,记住size没有括弧
+        console.log(s2);
+        console.log(s2.size);
+
+        // 添加新的元素
+        s2.add('xishi')
+        console.log(s2);
+        console.log(s2.size);
+
+        // 删除元素
+        s2.delete('huaishi');
+        console.log(s2);
+
+        // 检测元素是否存在
+        s2.has('haoshi');
+        console.log(s2.has('haoshi'));// 输出： true
+        console.log(s2.has('zaoxinshi'));// 输出： false
+
+        // 清空
+        // s2.clear();
+        // console.log(s2);
+
+        // 使用 for...of 遍历set集合
+        for (let v of s2) {
+            console.log(v);
+        }
+
+
+    </script>
+</body>
+
+</html>

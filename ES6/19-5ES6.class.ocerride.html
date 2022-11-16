@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类继承-2: 子类对父类方法的重写</title>
+</head>
+
+<body>
+    <script>
+        // 子类对父类方法的重写
+        // 
+
+        // 手机
+        class Phone{
+            // 构造方法
+            constructor(brand, price){
+                this.brand = brand;
+                this.price = price;
+            }
+
+            // 父类的成员函数
+            call(){
+                console.log('我可以打电话');
+            }
+
+            message(){
+                console.log('我可以发短信');
+            }
+
+        }
+        
+        // 继承
+        class SmartPhone extends Phone{
+            // 构造方法
+            constructor(brand,price,color,size){
+                // 调用父类的构造方法
+                super(brand,price);// 等价于Phone.call(this,brand,price);
+                this.color = color;
+                this.size - size;
+            }
+
+            // 重写父类的方法
+            message(){
+                console.log('发智能语音消息')
+            }
+
+            // SmartPhone独有的方法
+            photo(){
+                console.log('拍照');
+            }
+
+            playGame(){
+                console.log('玩游戏');
+            }
+        }
+
+        // 实例化
+        const xiaomi = new SmartPhone('小米',4599,'白色','5.5inch');
+        console.log(xiaomi);
+        xiaomi.call();
+        xiaomi.message();//此处调用的是子类SmartPhone里的方法，而非父类里面的方法
+        xiaomi.photo();
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数的应用</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background: #58a;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad"></div>
+    <script>
+        // 需求1 - 点击 div 2s 后颜色变成 粉色
+        // 获取元素
+        let ad = document.getElementById('ad');
+        // 绑定事件
+        ad.addEventListener('click', function () {
+            // 保存 this 的值
+            // let _this = this;
+            // // 定时器
+            // setTimeout(function(){
+            //     // 修改背景颜色
+            //     //this.style.background = 'pink';//不保存this的值，就出错，window是没有this指针的
+            //     _this.style.background = 'pink';//出错，window是没有this指针的
+            // },2000)
+
+            // 用箭头函数就可以直接使用 this
+            // 因为箭头函数里的 this 是静态的，会记录当时的情况，
+            // 而function是不会记录当时的情况
+            setTimeout(() => {
+                // 修改背景颜色
+                //this.style.background = 'pink';//不保存this的值，就出错，window是没有this指针的
+                this.style.background = 'pink';//不出错
+            }, 2000)
+        });
+
+
+        // 需求2 - 从数组中返回偶数的元素
+        // 普通的写法
+        const arr = [1, 6, 9, 10, 100, 255];
+        const result = arr.filter(function (item) {
+            if (item % 2 === 0) {
+                return true;
+            } else {
+                return false;
+            }
+        })
+        console.log(result);
+
+        // 使用箭头函数的形式
+        const result1 = arr.filter(item => item % 2 === 0)
+        console.log(result1);
+
+        // 箭头函数适合与 this 无关的回调. 定时器，数组的方法回调
+        // 箭头函数不适合与 this 有关的回调，（并不代表不能用，只是不适合）。 事件回调，对象的方法
+
+        // 外层部分
+        {// 花括号部分
+            name:'atguigu';
+            getName: ()=>{
+                // 箭头函数里，this 指向外层作用域的值
+                this.name;
+            };
+            getName1: function(){
+                // function里，this 花括号部分的对象{}
+                this.name;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

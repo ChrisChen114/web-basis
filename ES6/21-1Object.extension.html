@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象方法扩展</title>
+</head>
+
+<body>
+    <script>
+        // 1. Object.is 判断两个值是否完全相等
+        console.log(Object.is(120,121));//false； 和全等号===很像
+        console.log(Object.is(NaN,NaN));//true；
+        console.log(NaN === NaN);//false；因为NaN和任何一个数值进行比较，除了不等于，其他结果都是false
+
+        // 2. Object.assign 对象的合并
+        // 用于配置参数的合并挺合适
+        const config1 = {
+            host:'localhost',
+            port: 3306,
+            username:'root',
+            pass:'root',
+            test:'test'
+        };
+        const config2 = {
+            host:'http://atguigu.com',
+            port: 33060,
+            username:'atguigu',
+            pass:'iloveyou',
+            test2:'test2'
+        };
+        // 一个是模板，另一个是被覆盖，后面那个会覆盖前面那个同名的内容,
+        // 如果前面那个值多，则会保留
+        let result = Object.assign(config1,config2);
+        console.log(result);
+        /*
+            host："http://atguigu.com"
+            pass: "iloveyou"
+            port: 33060
+            test: "test"
+            test2: "test2"
+            username: "atguigu"
+        */ 
+    //    
+
+        // 3. Object.setPrototypeOf 设置原型对象 Object.getPrototypeOf
+        const school = {
+            name:'shangguigu'
+        }
+        const cities = {
+            xiaoqu:['beijing','shanghai','shenzhen']
+        }
+        Object.setPrototypeOf(school,cities);
+        console.log(school);
+        /*
+            name: "shangguigu"
+            [[Prototype]]: Object
+                xiaoqu: (3) ['beijing', 'shanghai', 'shenzhen']
+                [[Prototype]]: Object
+        */
+
+        console.log(Object.getPrototypeOf(school));
+        // 返回：{xiaoqu: Array(3)}
+
+
+
+    </script>
+</body>
+
+</html>

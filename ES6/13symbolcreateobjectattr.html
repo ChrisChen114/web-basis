@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol 创建对象属性</title>
+</head>
+
+<body>
+    <script>
+        // 向对象中添加方法  up down (类似同名问题)
+        let game = {
+            name:'俄罗斯方块',
+            up: function(){},
+            down: function(){}
+        }
+
+        // 声明一个对象
+        let methods={
+            up: Symbol(),
+            down: Symbol()
+        };
+
+        // 安全地向对象中加两个方法
+        game[methods.up] = function(){
+            console.log('wokeyi gaibian xingzhuang')
+        }
+        game[methods.down] = function(){
+            console.log('wokeyi kuaisu xiajiang')
+        }
+
+        console.log(game)
+
+
+        // 另一个方式在对象中添加方法
+        let youxi = {
+            name:'狼人杀',
+            // 为这个对象添加独一无二的方法，怎么写？
+            // Symbol():function() { // 不可以这么写，因为Symbol()是一个动态值，是一个表达式
+            // }
+            // 补一个中括号，加一个描述字符串
+            [Symbol('say')]:function() { 
+                console.log('我可以发言');
+            },
+            [Symbol('eat')]:function() { 
+                console.log('我可以吃饭');
+            }
+        }
+        console.log(youxi);
+        /*
+            {name: '狼人杀', Symbol(say): ƒ, Symbol(eat): ƒ}
+                name: "狼人杀"
+                Symbol(eat): ƒ ()
+                Symbol(say): ƒ ()
+                [[Prototype]]: Object
+        */ 
+
+
+
+    </script>
+</body>
+
+</html>

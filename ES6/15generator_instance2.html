@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成器函数实例</title>
+</head>
+
+<body>
+    <script>
+        // yield 实现异步，解决回调地狱的问题
+        // 模拟获取 用户数据 订单数据 商品数据
+        function getUser(){
+            setTimeout(()=>{
+                let data = '用户数据';
+                // console.log(data);
+                // 调用next方法，并且将数据传入
+                iterator.next(data);
+            },1000);
+        }
+
+        function getOrder(){
+            setTimeout(()=>{
+                let data = '订单数据';
+                // console.log(data);
+                iterator.next(data);
+            },1000);
+        }
+
+        function getGoods(){
+            setTimeout(()=>{
+                let data = '商品数据';
+                // console.log(data);
+                iterator.next(data);
+            },1000);
+        }
+
+        function * gen(){
+            let users = yield getUser();//getUser()方法里的next，将结果返回给let users
+            console.log(users);
+            let orders = yield getOrder();
+            console.log(orders);
+            let goods = yield getGoods();
+            console.log(goods);
+        }
+
+        let iterator = gen();
+        iterator.next();//调用getUser()
+
+    </script>
+</body>
+
+</html>

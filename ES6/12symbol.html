@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>symbol</title>
+</head>
+
+<body>
+    <script>
+        // ES6 引入的一种新的原始数据类型Symbol，表示独一无二。
+        // 它是JS语言的第7种数据类型，是一种类似于字符串的数据类型
+
+        // 创建Symbol
+        let s = Symbol();// 这种情况，Symbol是函数
+        // console.log(s, typeof s);
+        let s2 = Symbol('shangguigu'); 
+        let s3 = Symbol('shangguigu');
+        // 输出 false，说明：里面的内容只是一个标志，返回值（返回的编号）是不一样的
+        console.log(s2 === s3);// 输出 false
+
+        // Symbol.for 创建
+        let s4 = Symbol.for('shangguigu');//这种情况，Symbol是对象
+        let s5 = Symbol.for('shangguigu');//这种情况，Symbol是对象
+        console.log(s4, typeof s4);
+        // 输出： Symbol(shangguigu) 'symbol'
+        // 输出 true，说明：对象的返回值是一样的
+        console.log(s4 === s5);// 输出 true
+
+        // Symbol 不能与其他数据进行运算
+        // let result = s4+100;// 出错 Cannot convert a Symbol value to a number
+        // let result = s4>100;// 出错 Cannot convert a Symbol value to a number
+         let result = s4+s5;// 出错 ,对自己也不能运算
+
+        //  总结  USONB => you are so niubility
+        // u undefined
+        // s string symbol
+        // o object
+        // n null,number
+        // b boolean
+
+
+    </script>
+</body>
+
+</html>

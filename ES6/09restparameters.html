@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rest参数</title>
+</head>
+<body>
+    <script>
+        // ES6 引入 rest 参数，用于获取函数的实参，用来代替arguments
+        // ES5 获取实参的方式
+        // function date(){
+        //     // 返回的是对象
+        //     console.log(arguments);
+        // }
+        // date('baizhi','ajiao','sihui');
+
+        // ES6  rest 参数
+        // rest 参数必须要加上 ...和一个变量
+        function date(...args){
+            // (3) ['baizhi', 'ajiao', 'sihui']   
+            // 返回的是数组，可以用数组的方法，如filter,some,every,map
+            console.log(args);
+        }
+
+        // rest 参数必须要放到参数最后
+        function fn(a,b,...args){
+            // 打印  1 
+            // 打印  2       
+            // 打印  (4) [3, 4, 5, 6]
+            console.log(a);
+            console.log(b);
+            console.log(args);
+        }
+        fn(1,2,3,4,5,6);
+
+    </script>
+</body>
+</html>

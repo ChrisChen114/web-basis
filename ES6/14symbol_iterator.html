@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol - Symbol.iterator - 迭代器 </title>
+</head>
+
+<body>
+    <script>
+        // 值以外， ES6 还提供了 11(还在扩展，现在有14个)个内置的 Symbol值，指向语言内部使用的方法。
+        // 可以称这些方法为魔术方法，因为它们会在特定的场景下自动执行。
+
+        
+
+    /*
+        Symbol.iterator 
+        为每一个对象定义了默认的迭代器。该迭代器可以被 for...of 循环使用。
+    */ 
+    /*
+        遍历器（Iterator）就是一种机制。
+        它是一种接口，为各种不同的数据结构提供统一的访问机制。
+        任何数据结构只要部署 Iterator 接口，就可以完成遍历操作 。
+
+        Iterator 接口，说白了就是对象里面的一个属性.
+
+        工作原理:
+            a) 创建一个指针对象，指向当前数据结构的起始位置
+            b) 第一次调用对象的 next方法，指针自动指向数据结构的第一个成员
+            c) 接下来不断调用 next方法，指针一直往后移动，直到指向最后一个成员
+            d) 每调用 next方法返回一个包含 value和 done属性的对象
+    */    
+
+    // 声明一个数组
+    const xiyou = ['tangseng','zhubajie','sunwukong','shaseng'];
+
+    // 使用for...of 遍历数组
+    for(let v of xiyou){
+        console.log(v);
+    }
+
+    console.log(xiyou);
+
+
+    </script>
+</body>
+
+</html>

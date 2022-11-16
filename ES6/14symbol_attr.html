@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol 内置属性（Symbol属性）</title>
+</head>
+
+<body>
+    <script>
+        // 值以外， ES6 还提供了 11(还在扩展，现在有14个)个内置的 Symbol值，指向语言内部使用的方法。
+        // 可以称这些方法为魔术方法，因为它们会在特定的场景下自动执行。
+
+        /*
+            Symbol.hasInstance
+        */
+        // 类class
+        class Person {
+            static [Symbol.hasInstance](param) {
+                console.log(param);//param 是instanceof前面的对象，即param = o
+                console.log("我是被用来检测类型了");
+                // return true or false
+            }
+        }
+
+        let o = {};
+        // 用 o 这个对象来做类型检测
+        // 当其他对象使用instanceof运算符，判断是否为该对象的实例时，会调用这个方法
+        console.log(o instanceof Person);
+
+
+        // 
+        const arr = [1, 2, 3];
+        const arr2 = [4, 5, 6];
+        // Symbol.isConcatSpreadable 是一个boolean的值
+        arr2[Symbol.isConcatSpreadable] = false;// 设置false，就是不可展开
+        console.log(arr.concat(arr2)); // 输出： [1, 2, 3, Array(3)]
+
+        /*
+            Symbol.hasInstance
+        */
+        class Array1 {
+            static [Symbol.hasInstance](instance) {
+                return Array.isArray(instance);
+            }
+        }
+
+        console.log([] instanceof Array1);
+        // expected output: true
+
+
+        /*
+            Symbol.match
+            Symbol.match 指定了匹配的是正则表达式而不是字符串。
+
+            // Symbol.match 属性的属性特性：有三个，均为false
+            // writable	false
+            // enumerable	false
+            // configurable	false
+
+            禁止表达式检查：
+                如将 Symbol.match 置为 false，使用 match 属性的表达式检查会认为该对象不是正则表达式对象。
+                startsWith 和 endsWith 方法将不会抛出 TypeError。
+        */
+
+        let str1 = 'fganir';
+        // let str2 = 'gfjroei';
+        // console.log(str1.match(str2));// null
+        let str2 = 'fganir';
+        str1[Symbol.match] = false;//为什么是false？作用是啥？见下
+
+        console.log('fganir'.startsWith(str1));// 输出 true
+        console.log('-fganir'.startsWith(str1));// 输出 false
+
+
+
+        /*
+            Symbol.split
+        */
+        var exp = {
+            pat: 'in',
+            [Symbol.split](str) {
+                return str.split(this.pat);
+            }
+        }
+        // "dayinlove".split(exp) 调用 [Symbol.split](str) 处理，并把实参"dayinlove"传给形参 str
+        "dayinlove".split(exp);
+        //输出：["day", "love"]
+
+
+        /*
+            Symbol.search 
+            指定了一个搜索方法，这个方法接受用户输入的正则表达式，返回该正则表达式在字符串中匹配到的下标
+        */
+
+        class caseInsensitiveSearch {
+            constructor(value) {
+                this.value = value.toLowerCase();
+            }
+            [Symbol.search](string) {
+                return string.toLowerCase().indexOf(this.value);
+            }
+        }
+
+        console.log('foobar'.search(new caseInsensitiveSearch('BaR')));
+        // expected output: 3
+
+        /*
+            Symbol.unscopables
+            指用于指定对象值，其对象自身和继承的从关联对象的 with 环境绑定中排除的属性名称。
+
+            Symbol.iterator 
+            为每一个对象定义了默认的迭代器。该迭代器可以被 for...of 循环使用。
+        */ 
+
+
+    </script>
+</body>
+
+</html>

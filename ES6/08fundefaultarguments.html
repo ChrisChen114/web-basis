@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数参数默认值</title>
+</head>
+<body>
+    <script>
+        // ES6 允许给函数参数赋值初始值
+        // 1. 形参初始值  具有默认值的参数，一般位置要靠后（潜规则）
+        function add(a,b,c=10){
+            return a+b+c;
+        }
+        // let result = add(1,2);// 如果c没有初始值，这种形式将返回NaN的结果
+        // let result = add(1,2);// 如果c=10有初始值，这种形式将返回13
+        let result = add(1,2,3);
+        console.log(result);
+
+        // 2. 与解构赋值结合
+        // 也可以设置默认值
+        function connect({host='127.0.0.1',username,password,port}){
+        // function connect(options){
+            // let host = options.host; // 每次都要加options，太重复了吧，所以通过上面的解构赋值
+            console.log(host);
+            console.log(username);
+            console.log(password);
+            console.log(port);
+        }
+        // connect里面是一个对象
+        connect({
+            host: 'localhost',
+            username:'root',
+            password:'root',
+            port:3306
+        })
+
+    </script>
+</body>
+</html>
